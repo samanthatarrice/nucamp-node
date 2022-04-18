@@ -218,10 +218,10 @@ campsiteRouter.route('/:campsiteId/comments/:commentId')
       if ((campsite.comments.id(req.params.commentId).author._id).equals(req.user._id)) {
         campsite.comments.id(req.params.commentId).remove();
         campsite.save()
-        .then(response => {
+        .then(campsite => {
           res.statusCode = 200;
           res.setHeader('Content-Type', 'application/json');
-          res.json(response);
+          res.json(campsite);
         })
         .catch(err => next(err));
       } else {
