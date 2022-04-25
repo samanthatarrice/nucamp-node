@@ -88,7 +88,7 @@ favoriteRouter.route('/:campsiteId')
         favorite.save()
           .then(favorite => {
             res.statusCode = 200;
-            res.setHeader('Content-Type', 'application/plain');
+            res.setHeader('Content-Type', 'application/json');
             res.json(favorite);
           })
           .catch(err => next(err));
